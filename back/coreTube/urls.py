@@ -14,7 +14,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializers_class = UserSerializer
 
 
-router = routers.DefaulrRouter()
+router = routers.DefaultRouter()
 router.register(f'users', UserViewSet)
 
 urlpatterns = [
