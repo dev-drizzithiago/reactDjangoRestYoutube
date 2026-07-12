@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-dnyck!w&(=evl0+=(!&a(%*n^uy)m)3#sw0=9=w)ni87u4k!bf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.15.250']
+ALLOWED_HOSTS = ["localhost", "192.168.15.250"]
 
 
 # Application definition
@@ -117,7 +117,45 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# - Permitir que navegadores façam requisições cross-origin
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://192.168.15.250",      # sem porta
+    "http://192.168.15.250:3000",
+    "http://192.168.15.250:80",
+    "http://192.168.15.250:88",
+]
 
+# - Permitir que o Django aceite requisições com cookies e tokens CSRF vindas de domínios confiáveis
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://192.168.15.250",      # sem porta
+    "http://192.168.15.250:3000",
+    "http://192.168.15.250:80",
+    "http://192.168.15.250:88",
+]
+
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "content-type",
+    "origin",
+    "authorization",
+    "x-csrftoken",
+]
+
+# Para testes
+
+CSRF_COOKIE_HTTPONLY = False  # bloqueia o acesso via JavaScript (document.cookie)
+CSRF_COOKIE_SECURE = False  # em dev, pode ser False; em produção, True com HTTPS
+
+# SESSION_COOKIE_SAMESITE = None  # se precisar compartilhar cookies entre domínios
+SESSION_COOKIE_DOMAIN = '192.168.15.250'  # deixa o navegador definir para o host atual
+CSRF_COOKIE_DOMAIN = '192.168.15.250'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
