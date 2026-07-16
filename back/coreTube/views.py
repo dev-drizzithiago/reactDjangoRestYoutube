@@ -6,7 +6,7 @@ from .serializers import *
 
 # Create your views here.
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializers_class = UserSerializer
+class DadosYoutubeViewSet(viewsets.ModelViewSet):
+    queryset = DadosYoutube.objects.all()
+    serializer_class = DadosYoutubeSerializer
 
