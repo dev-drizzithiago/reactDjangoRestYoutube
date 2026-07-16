@@ -70,7 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
@@ -80,7 +79,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -104,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'UTC'
 
@@ -118,50 +116,98 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# - Permitir que navegadores façam requisições cross-origin
-CORS_ALLOW_ALL_ORIGINS = False
+#
+# Lista de domínios que podem fazer requisições para sua API.
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3003",
+    "http://localhost:8080",
     "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://192.168.15.250",      # sem porta
-    "http://192.168.15.250:3000",
+    "http://localhost:80",
+    "http://localhost",
+
+    'http://54.94.172.107:80',
+    "http://54.94.172.107:88",
+
+    "http://192.168.0.250:3000",
+    "http://192.168.0.250:3001",
+    "http://192.168.0.250:3002",
+    "http://192.168.0.250:3003",
+    "http://192.168.0.250:8000",
+    "http://192.168.15.134:3003",
+    "http://192.168.15.134:88",
+    "http://192.168.15.134:8080",
+    "http://192.168.15.250:8080",
     "http://192.168.15.250:80",
-    "http://192.168.15.250:88",
+    "http://192.168.15.250",
 ]
+CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
 
-# - Permitir que o Django aceite requisições com cookies e tokens CSRF vindas de domínios confiáveis
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://192.168.15.250",      # sem porta
-    "http://192.168.15.250:3000",
-    "http://192.168.15.250:80",
-    "http://192.168.15.250:88",
-]
+# Se tiver 'True' Libera qualquer origem. (não só as da lista)
+CORS_ALLOW_ALL_ORIGINS = True
 
-
+# Permite enviar cookies, headers de autenticação ou credenciais com a requisição.
+# Útil se você usa login por sessão ou precisa mandar Authorization.
 CORS_ALLOW_CREDENTIALS = True
+
+# Define quais headers o navegador pode enviar.
 CORS_ALLOW_HEADERS = [
-    "accept",
-    "content-type",
-    "origin",
-    "authorization",
-    "x-csrftoken",
+    'content-type',   # permite enviar JSON.
+    'X-CSRFToken',    # usado em autenticação por sessão.
+    'Authorization',  # necessário para JWT, senão o preflight bloqueia.
 ]
 
-# Para testes
+# Lista de métodos HTTP permitidos.
+CORS_ALLOW_METHODS = [
+    'GET', 'POST', 'PUT',
+    'PATCH', 'DELETE', 'OPTIONS',
+]
 
-CSRF_COOKIE_HTTPONLY = False  # bloqueia o acesso via JavaScript (document.cookie)
-CSRF_COOKIE_SECURE = False  # em dev, pode ser False; em produção, True com HTTPS
+# Diz que o cookie de sessão pode ser enviado em HTTP (não só HTTPS).
+# Em produção, deve ser True.
+SESSION_COOKIE_SECURE = False
 
-# SESSION_COOKIE_SAMESITE = None  # se precisar compartilhar cookies entre domínios
-SESSION_COOKIE_DOMAIN = '192.168.15.250'  # deixa o navegador definir para o host atual
+# Permite que cookies de sessão sejam enviados mesmo em requisições cross-site.
+# (Se fosse "Lax" ou "Strict", bloquearia em alguns cenários).
+SESSION_COOKIE_SAMESITE = None
+
+# Mesma lógica, mas para o cookie de CSRF.
+CSRF_COOKIE_SAMESITE = None
+
+# Permite CSRF cookie em HTTP.
+# ⚠️ Em produção, deve ser True.
+CSRF_COOKIE_SECURE = True
+
+# Se fosse True, o cookie CSRF não poderia ser acessado via JavaScript.
+# Como está False, o JS pode ler.
+CSRF_COOKIE_HTTPONLY = True
+
+# Libera o acesso para o adm do django
+# Define o domínio válido para o cookie CSRF.
+# Isso significa que o cookie só será aceito se vier desse domínio.
 CSRF_COOKIE_DOMAIN = '192.168.15.250'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.SessionAuthentication',  # exigir CSRF
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+
+    # Define que todas as views exigem login por padrão
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'DEFAULT_PAGINATION_CLASS': 'StandResultsPagination',
+    'PAGE_SIZE': 50,
+
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter']
+}
+# Configura o tempo de vido do token de login.
+from datetime import timedelta
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),   # token de acesso dura 120 minutos
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),      # token de refresh dura 7 dias
 }

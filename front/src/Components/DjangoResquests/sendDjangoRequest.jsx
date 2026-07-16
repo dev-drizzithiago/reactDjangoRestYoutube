@@ -1,4 +1,7 @@
 async function sendRequestDjango(linkSendRequest, payload) {
+
+    console.log(linkSendRequest)
+    
     let TokenLogin;
     let corpoRequest;
     

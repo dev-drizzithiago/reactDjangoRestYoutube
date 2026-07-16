@@ -7,14 +7,14 @@ import sendRequestDjango from '../DjangoResquests/sendDjangoRequest';
 export default function JanelaLogin() {
   const { tokenLogin, setTokenLogin } =useLoginContext()
 
-  const btnLogin = () => {
+  const btnLogin = async () => {
     const payload = {
       methodProcesso: 'POST',
       Authorization: null,
       dadosProcesso: null,
     }
 
-    const responseDjango = sendRequestDjango(urlDjangoLogin, payload);
+    const responseDjango = await sendRequestDjango(urlDjangoLogin, payload);
     console.log(responseDjango)
   }
 

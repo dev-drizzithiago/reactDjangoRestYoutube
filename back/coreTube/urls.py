@@ -20,6 +20,6 @@ urlpatterns = [
     path('', include(router.urls)),
 
     # Criar um token quando faz login
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('apt/token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/', TokenObtainPairView.as_view()),
+    path('apt/token/refresh', TokenRefreshView.as_view()),
 ]
