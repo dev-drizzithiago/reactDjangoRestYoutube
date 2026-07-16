@@ -19,12 +19,7 @@ router = routers.DefaultRouter()
 urlpatterns = [
     path('', include(router.urls)),
 
-    # Url responsável pelo login; usando apenas rest.
-    path('api/token/',
-         TokenObtainPairView.as_view(
-             serializer_class=TokenCustomizadoSerializer
-         ),
-         name='token_obtain_pair'),
-
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # Criar um token quando faz login
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('apt/token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
 ]
