@@ -1,4 +1,13 @@
+* {
+  color: beige;
+}
+
 .app_principal{
-  border: 1px solid black;
+  border: 1px solid beige;
+  width: 100%;
+}
+
+.app_divIndexBar {
+  border: 1px solid beige;
   width: 100%;
 }
