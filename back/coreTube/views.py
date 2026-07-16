@@ -9,4 +9,3 @@ from .serializers import *
 class DadosYoutubeViewSet(viewsets.ModelViewSet):
     queryset = DadosYoutube.objects.all()
     serializer_class = DadosYoutubeSerializer
-

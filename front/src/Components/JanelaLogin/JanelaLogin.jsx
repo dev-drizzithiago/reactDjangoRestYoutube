@@ -1,6 +1,23 @@
 import './JanelaLogin.css'
+import { urlDjangoLogin } from '../../urls';
+import { useLoginContext } from '../Contexts/ContextLogin';
+import sendRequestDjango from '../DjangoResquests/sendDjangoRequest';
+
 
 export default function JanelaLogin() {
+  const { tokenLogin, setTokenLogin } =useLoginContext()
+
+  const btnLogin = () => {
+    const payload = {
+      methodProcesso: 'POST',
+      Authorization: null,
+      dadosProcesso: null,
+    }
+
+    const responseDjango = sendRequestDjango(urlDjangoLogin, payload);
+    console.log(responseDjango)
+  }
+
   return (
     <div className='login_divPrincipal'>
       <div>
@@ -39,7 +56,7 @@ export default function JanelaLogin() {
           </div>
         
         <div className='divBtns'>
-          <button className='btnGeral'>Acessar</button>          
+          <button className='btnGeral' onClick={btnLogin}>Acessar</button>          
         </div>
 
       </div>
