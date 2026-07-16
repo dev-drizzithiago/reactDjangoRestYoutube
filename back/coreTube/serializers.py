@@ -1,8 +1,18 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
+from models import *
 
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class DadosYoutubeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        model = DadosYoutube
+        fields = '__all__'
+
+class MoviesSalvasServidorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MoviesSalvasServidor
+        fields = '__all__'
+
+class MusicsSalvasServidorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MoviesSalvasServidor
+        fields = '__all__'
+
