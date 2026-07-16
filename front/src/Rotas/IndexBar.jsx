@@ -6,7 +6,7 @@ const IndexBar = () => {
   return (
     <div>
          <ul className='nav-listaLinks'>
-            <li >
+            <li>
                 <NavLink to='login'>                    
                     Login
                 </NavLink> 

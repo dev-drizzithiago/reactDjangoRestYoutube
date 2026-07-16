@@ -1,7 +1,9 @@
 import './App.css'
 import JanelaLogin from './Components/JanelaLogin/JanelaLogin';
 import { useLoginContext } from './Components/Contexts/ContextLogin';
+import { Routes } from 'react-router-dom';
 import IndexBar from './Rotas/IndexBar';
+import Rotas from './Rotas/RotaPrincipal';
 
 function App() {
   const { tokenLogin, setTokenLogin } = useLoginContext()
@@ -14,7 +16,12 @@ function App() {
 
       <div className='app_divIndexBar'>
         <IndexBar />
-      </div>
+      </div>     
+
+      <Routes>
+        {Rotas()}
+      </Routes>
+      
     </div>
   )
 }
