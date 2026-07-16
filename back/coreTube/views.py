@@ -9,3 +9,4 @@ from .serializers import *
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializers_class = UserSerializer
+
