@@ -9,9 +9,12 @@ export default function JanelaLogin() {
 
   const btnLogin = async () => {
     const payload = {
-      methodProcesso: 'POST',
-      Authorization: null,
-      dadosProcesso: null,
+       methodProcesso: 'POST', // Obrigatório
+        Authorization: null,  // Na janela de login não é necessário
+        dadosProcesso: {
+            'username': usuarioLoginDigital,
+            'password': passwordLoginDigital,
+        } // Obrigatório
     }
 
     const responseDjango = await sendRequestDjango(urlDjangoLogin, payload);
