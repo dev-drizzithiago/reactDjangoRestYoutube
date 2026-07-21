@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const navBar = () => {
+const NavBar = () => {
   return (
     <div>
         <ul className='nav-listaLinks'>
@@ -10,9 +10,19 @@ const navBar = () => {
                     Links
                 </NavLink> 
             </li>
+            <li>
+                <NavLink to='mp3'>
+                    MP3
+                </NavLink> 
+            </li>
+            <li>
+                <NavLink to='mp3'>
+                    MP4
+                </NavLink> 
+            </li>
         </ul>
     </div>
   )
 }
 
-export default navBar();
+export default NavBar;
