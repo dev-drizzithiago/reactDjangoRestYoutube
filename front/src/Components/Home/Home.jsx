@@ -1,5 +1,5 @@
 import React from 'react'
-import navBar from '../../Rotas/navBar'
+import NavBar from '../../Rotas/NavBar'
 
 export default function Home() {
   return (
@@ -7,11 +7,9 @@ export default function Home() {
         <div>
             <h3>Página Inicial</h3>
         </div>
-        <div>            
-            <div>
-                <navBar />
-            </div>
-        </div>
+        <div>
+            <NavBar />
+        </div>            
     </div>
   )
 }
