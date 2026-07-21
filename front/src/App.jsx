@@ -20,7 +20,6 @@ function App() {
       <div>
         <h3>Titulo</h3>
       </div>
-
       
       <Routes>
         {Rotas()}
