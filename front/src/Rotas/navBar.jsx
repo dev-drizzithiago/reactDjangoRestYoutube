@@ -1,12 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function () {
+const navBar = () => {
   return (
     <div>
         <ul className='nav-listaLinks'>
             <li>
-                <NavLink to='login'>                    
+                <NavLink to='links'>                    
                     Links
                 </NavLink> 
             </li>
@@ -14,3 +14,5 @@ export default function () {
     </div>
   )
 }
+
+export default navBar();
