@@ -1,19 +1,16 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const IndexBar = () => {
-
+export default function () {
   return (
     <div>
-         <ul className='nav-listaLinks'>
+        <ul className='nav-listaLinks'>
             <li>
                 <NavLink to='login'>                    
-                    Login
+                    Links
                 </NavLink> 
             </li>
         </ul>
     </div>
   )
 }
-
-export default IndexBar

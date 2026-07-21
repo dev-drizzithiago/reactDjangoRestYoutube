@@ -1,12 +1,19 @@
 import './App.css'
 import JanelaLogin from './Components/JanelaLogin/JanelaLogin';
 import { useLoginContext } from './Components/Contexts/ContextLogin';
-import { Routes } from 'react-router-dom';
-import IndexBar from './Rotas/IndexBar';
+import { Routes, useNavigate} from 'react-router-dom';
 import Rotas from './Rotas/RotaPrincipal';
+import { useEffect } from 'react';
 
 function App() {
-  const { tokenLogin, setTokenLogin } = useLoginContext()
+  const { tokenLogin, setTokenLogin } = useLoginContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!tokenLogin) {
+      navigate("/login")
+    }
+  }, [tokenLogin])
 
   return (
     <div className='app_principal'>
@@ -14,10 +21,7 @@ function App() {
         <h3>Titulo</h3>
       </div>
 
-      <div className='app_divIndexBar'>
-        <IndexBar />
-      </div>     
-
+      
       <Routes>
         {Rotas()}
       </Routes>

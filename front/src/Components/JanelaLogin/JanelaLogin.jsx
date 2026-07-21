@@ -2,23 +2,37 @@ import './JanelaLogin.css'
 import { urlDjangoLogin } from '../../urls';
 import { useLoginContext } from '../Contexts/ContextLogin';
 import sendRequestDjango from '../DjangoResquests/sendDjangoRequest';
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 export default function JanelaLogin() {
-  const { tokenLogin, setTokenLogin } =useLoginContext()
+  const { tokenLogin, setTokenLogin } =useLoginContext();
+  const navigate = useNavigate();
+
+  const [ dictCredencialLogin, setDictCredencialLogin ] = useState({
+    username: '',
+    password: '',
+  })
 
   const btnLogin = async () => {
     const payload = {
        methodProcesso: 'POST', // Obrigatório
         Authorization: null,  // Na janela de login não é necessário
         dadosProcesso: {
-            'username': usuarioLoginDigital,
-            'password': passwordLoginDigital,
+            'username': dictCredencialLogin.username,
+            'password': dictCredencialLogin.password,
         } // Obrigatório
     }
-
+    
     const responseDjango = await sendRequestDjango(urlDjangoLogin, payload);
-    console.log(responseDjango)
+    
+    if (responseDjango) {
+      if (responseDjango.access) {
+        setTokenLogin(responseDjango.access)
+        navigate("/")
+      }
+    }
   }
 
   return (
@@ -41,6 +55,12 @@ export default function JanelaLogin() {
               className='login_inputs'
               type="mail" 
               name='email'
+              value={dictCredencialLogin.username}
+              onChange={(e) => {
+                setDictCredencialLogin(prev => ({
+                  ...prev, 
+                  username: e.target.value
+                }))}}
               />
             </div>
 
@@ -54,6 +74,12 @@ export default function JanelaLogin() {
               className='login_inputs'
               type="password" 
               name='password'
+              value={dictCredencialLogin.password}
+              onChange={(e) => {
+                setDictCredencialLogin(prev => ({
+                  ...prev, 
+                  password: e.target.value
+                }))}}
               />
             </div>
           </div>
