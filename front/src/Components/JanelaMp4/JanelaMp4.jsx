@@ -1,6 +1,9 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom"
 
 function JanelaMp4() {
+
+  const navigate = useNavigate()
+
   return (
     <div>
         <div>
