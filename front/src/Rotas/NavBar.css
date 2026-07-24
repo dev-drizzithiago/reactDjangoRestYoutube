@@ -1,0 +1,13 @@
+.nav_divPrincipal {
+    width: 100%;
+    border: 1px, solid #fff;
+}
+
+.nav_listaLinks {
+    width: 100%;
+    border: 1px, solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}

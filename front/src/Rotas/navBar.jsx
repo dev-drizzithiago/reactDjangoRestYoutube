@@ -1,10 +1,11 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import './NavBar.css';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <div>
-        <ul className='nav-listaLinks'>
+    <div className='nav_divPrincipal'>
+
+        <ul className='nav_listaLinks'>
             <li>
                 <NavLink to='links'>                    
                     Links
@@ -16,11 +17,12 @@ const NavBar = () => {
                 </NavLink> 
             </li>
             <li>
-                <NavLink to='mp3'>
+                <NavLink to='mp4'>
                     MP4
                 </NavLink> 
             </li>
         </ul>
+        
     </div>
   )
 }
