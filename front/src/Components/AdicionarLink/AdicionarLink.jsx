@@ -1,10 +1,12 @@
+import { useState } from 'react'
 import  './AdicionarLink.css'
-
 
 function AdicionarLink() {
 
-    const btnAdicionarLink = () => {
+    const [ linkYoutube, setLinkYoutube ] = useState({link: ''})
 
+    const btnAdicionarLink = () => {
+        console.log(linkYoutube)
     }
 
   return (
@@ -19,11 +21,19 @@ function AdicionarLink() {
                 type="text"
                 name='link'
                 className='form_link'
+                value={linkYoutube.link}
+                onChange={(e) => {
+                    setLinkYoutube(prev => ({
+                        ...prev,
+                        link: e.target.value
+                    }))
+                }}
             />
         </div>
 
-        <div>
-          <button onClick={btnAdicionarLink}>Adicionaar</button>
+        <div className='divBtns'>
+          <button className='btnGeral' onClick={btnAdicionarLink}>Limpar</button>
+          <button className='btnGeral' onClick={btnAdicionarLink}>Adicionar</button>
         </div>
 
     </div>
