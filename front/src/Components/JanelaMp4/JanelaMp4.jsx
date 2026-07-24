@@ -9,6 +9,11 @@ function JanelaMp4() {
         <div>
             <h3>MP4 Salvos</h3>
         </div>
+
+        <div>
+          <button onClick={() => navigate('/')}>Voltar</button>
+        </div>
+        
     </div>
   )
 }

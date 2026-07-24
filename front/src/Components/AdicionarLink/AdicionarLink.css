@@ -1,0 +1,23 @@
+
+.form_divPrincipal {
+    border: 1px solid #fff;
+    width: 100%;
+}
+
+.form_divInputs {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.form_link {
+    border: 1px solid #fff;
+    width: 50%;
+
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 14pt;
+}
