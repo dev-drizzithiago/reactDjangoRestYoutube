@@ -2,18 +2,24 @@ import { useState } from 'react'
 import  './AdicionarLink.css'
 
 import { useLoginContext } from '../Contexts/ContextLogin'
+import sendRequestDjango from '../DjangoResquests/sendDjangoRequest';
+import { urlDjangoAddLink } from '../../urls';
+
 
 function AdicionarLink() {
 
     const [ linkYoutube, setLinkYoutube ] = useState({link: ''});
     const { tokenLogin, setTokenLogin } = useLoginContext();
 
-    const btnAdicionarLink = () => {
+    const btnAdicionarLink = async () => {
         const payload = {
             methodProcesso: 'POST',
             Authorization: tokenLogin,
             dadosProcesso: linkYoutube,
         }
+
+        const responseDjango =  await sendRequestDjango(urlDjangoAddLink, payload)
+        console.log(responseDjango)
     }
 
   return (
