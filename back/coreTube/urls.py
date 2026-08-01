@@ -15,6 +15,7 @@ from rest_framework_simplejwt.views import (
 )
 
 router = routers.DefaultRouter()
+router.register('adicionar-link', DadosYoutubeViewSet, basename='adicionar-link')
 
 urlpatterns = [
     path('', include(router.urls)),
