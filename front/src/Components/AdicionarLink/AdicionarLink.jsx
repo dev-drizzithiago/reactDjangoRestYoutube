@@ -1,12 +1,19 @@
 import { useState } from 'react'
 import  './AdicionarLink.css'
 
+import { useLoginContext } from '../Contexts/ContextLogin'
+
 function AdicionarLink() {
 
-    const [ linkYoutube, setLinkYoutube ] = useState({link: ''})
+    const [ linkYoutube, setLinkYoutube ] = useState({link: ''});
+    const { tokenLogin, setTokenLogin } = useLoginContext();
 
     const btnAdicionarLink = () => {
-        console.log(linkYoutube)
+        const payload = {
+            methodProcesso: 'POST',
+            Authorization: tokenLogin,
+            dadosProcesso: linkYoutube,
+        }
     }
 
   return (
