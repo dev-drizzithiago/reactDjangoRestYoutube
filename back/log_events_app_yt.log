@@ -1,0 +1,106 @@
+2026-08-04 12:38:27,172 - ERROR - Internal Server Error: /adicionar-link/link/
+Traceback (most recent call last):
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\viewsets.py", line 104, in view
+    self = cls(**initkwargs)
+TypeError: DadosYoutubeViewSet.__init__() got an unexpected keyword argument 'name'
+2026-08-04 12:38:37,498 - ERROR - Internal Server Error: /adicionar-link/link/
+Traceback (most recent call last):
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\viewsets.py", line 104, in view
+    self = cls(**initkwargs)
+TypeError: DadosYoutubeViewSet.__init__() got an unexpected keyword argument 'name'
+2026-08-04 12:39:17,831 - INFO - D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py changed, reloading.
+2026-08-04 12:39:21,691 - ERROR - Internal Server Error: /adicionar-link/link/
+Traceback (most recent call last):
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\viewsets.py", line 104, in view
+    self = cls(**initkwargs)
+TypeError: DadosYoutubeViewSet.__init__() got an unexpected keyword argument 'name'
+2026-08-04 12:39:56,233 - INFO - D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py changed, reloading.
+2026-08-04 12:40:03,032 - INFO - Registrar link na base de dados
+2026-08-04 12:40:03,033 - ERROR - Não foi possível registrar o link: [{'link': 'teste'}]
+2026-08-04 12:43:07,868 - INFO - D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py changed, reloading.
+2026-08-04 12:43:15,517 - INFO - Validando se link é YouTube
+2026-08-04 12:43:15,561 - ERROR - Internal Server Error: /adicionar-link/link/
+Traceback (most recent call last):
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py", line 28, in link
+    retorno_validate = self.obj_tube.validar_link_youtube(link_front)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\modulo_tube\app_tube.py", line 464, in validar_link_youtube
+    if 'https://' not in link[:9]:
+                         ~~~~^^^^
+KeyError: slice(None, 9, None)
+2026-08-04 14:22:03,343 - INFO - D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\modulo_tube\app_tube.py changed, reloading.
+2026-08-04 14:22:07,856 - INFO - Validando se link é YouTube
+2026-08-04 14:22:07,919 - ERROR - Internal Server Error: /adicionar-link/link/
+Traceback (most recent call last):
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py", line 28, in link
+    retorno_validate = self.obj_tube.validar_link_youtube(link_front)
+  File "D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\modulo_tube\app_tube.py", line 466, in validar_link_youtube
+    if 'https://' not in link[:9]:
+                         ~~~~^^^^
+KeyError: slice(None, 9, None)
+2026-08-04 14:22:41,944 - INFO - D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py changed, reloading.
+2026-08-04 14:23:29,197 - INFO - D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py changed, reloading.
+2026-08-04 16:09:35,175 - WARNING - Unauthorized: /adicionar-link/link/
+2026-08-04 16:10:06,606 - INFO - D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py changed, reloading.
+2026-08-04 16:10:11,605 - INFO - Validando se link é YouTube
+2026-08-04 16:10:11,606 - INFO - Link valido: https://www.youtube.com/watch?v=YQoQsbbOsfM&list=RDYQoQsbbOsfM&start_radio=1
+2026-08-04 17:37:26,584 - INFO - D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py changed, reloading.
+2026-08-04 19:00:35,595 - INFO - D:\ProjetosProgramacao\reactDjangoRestYoutube\back\coreTube\views.py changed, reloading.
+2026-08-04 19:00:39,826 - WARNING - Unauthorized: /adicionar-link/link/
+2026-08-04 19:00:51,684 - INFO - Validando se link é YouTube
+2026-08-04 19:00:51,685 - INFO - Link valido: https://www.youtube.com/watch?v=YQoQsbbOsfM&list=RDYQoQsbbOsfM&start_radio=1
+2026-08-04 19:00:51,685 - INFO - Registrar link na base de dados
+2026-08-04 19:00:52,732 - INFO - Link salvo na base de dados com sucesso

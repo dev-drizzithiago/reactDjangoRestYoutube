@@ -213,3 +213,33 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),   # token de acesso dura 120 minutos
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),      # token de refresh dura 7 dias
 }
+
+
+# Garante que a pasta 'media' seja criada
+def criar_pasta_media():
+    import os
+    try:
+        local_media = os.path.join(BASE_DIR, 'media')
+        os.makedirs(local_media)
+    except FileExistsError:
+        pass
+
+    try:
+        local_media = os.path.join(BASE_DIR, 'media', 'movies')
+        os.makedirs(local_media)
+    except FileExistsError:
+        pass
+
+    try:
+        local_media = os.path.join(BASE_DIR, 'media', 'musics')
+        os.makedirs(local_media)
+    except FileExistsError:
+        pass
+
+    try:
+        local_media = os.path.join(BASE_DIR, 'media', 'musics')
+        os.makedirs(local_media)
+    except FileExistsError:
+        pass
+
+criar_pasta_media()
