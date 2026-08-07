@@ -104,3 +104,6 @@ KeyError: slice(None, 9, None)
 2026-08-04 19:00:51,685 - INFO - Link valido: https://www.youtube.com/watch?v=YQoQsbbOsfM&list=RDYQoQsbbOsfM&start_radio=1
 2026-08-04 19:00:51,685 - INFO - Registrar link na base de dados
 2026-08-04 19:00:52,732 - INFO - Link salvo na base de dados com sucesso
+2026-08-06 19:21:33,782 - WARNING - Unauthorized: /api/token/
+2026-08-06 19:21:36,708 - WARNING - Unauthorized: /api/token/
+2026-08-06 19:35:43,392 - WARNING - Unauthorized: /api/token/
